@@ -1,0 +1,10 @@
+public class SampleListener extends JFame implements ActionListener{
+	public void actinoPerforemd();->이게 프레임이자 리스너
+	리스너의객체의저장위치가 세군대만잇는ㄱㅔ아니라여러군대임
+
+}
+
+jlist 는 추가한벡터객체가 변하면 새로다시붙여줘야되고
+jcombobox는 따로따로추가가능
+
+p636 4번
