@@ -10,7 +10,9 @@ public class MoneyCounter extends JFrame implements ActionListener {
 	int [] cashvals = {50000,10000,1000,500,100,50,10,1};
 	JTextField inputMoney ;
 	ArrayList <ListData> divList;
+	
 	static final Color bgColor = Color.getHSBColor(0.01f, 0.45f, 0.89f);
+	
 	public MoneyCounter() {
 		JPanel [] panels = new JPanel[2];
 		panels[0] = new JPanel();
