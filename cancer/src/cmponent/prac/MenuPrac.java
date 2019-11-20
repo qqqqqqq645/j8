@@ -2,6 +2,7 @@ package cmponent.prac;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 public class MenuPrac extends JFrame {
 	public MenuPrac() {
 		setTitle("asdf");
@@ -14,15 +15,33 @@ public class MenuPrac extends JFrame {
 		screenMenu.add(new JMenuItem("Hide"));
 		screenMenu.add(new JMenuItem("ReShow"));
 		screenMenu.addSeparator();
-		screenMenu.add(new JMenuItem("Exit"));
+		JMenuItem temp = screenMenu.add(new JMenuItem("Exit"));
 		
-		menubar.add(screenMenu);
+		JMenu asdf = menubar.add(screenMenu);
 		menubar.add(new JMenu("Edit"));
 		menubar.add(new JMenu("Source"));
 		menubar.add(new JMenu("Project"));
 		menubar.add(new JMenu("Run"));
+			asdf.addActionListener(new ActionListener(){
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					// TODO Auto-generated method stub
+					System.out.println("run");
+					
+				}
+			});
+		temp.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				System.exit(0);
+				
+			}
+			
+		});
 		
-		add(menubar);
+		//add(menubar);
+		setJMenuBar(menubar);
 		setVisible(true);
 		setSize(300,300);
 		menubar.setSize(getWidth(),30);
