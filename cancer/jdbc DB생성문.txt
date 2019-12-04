@@ -1,0 +1,19 @@
+CREATE DATABASE `javadb` /*!40100 DEFAULT CHARACTER SET utf8 */;
+
+use javadb;
+
+CREATE TABLE `book` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) DEFAULT NULL,
+  `publisher` varchar(30) DEFAULT NULL,
+  `author` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `images` (
+  `id` int(11) NOT NULL,
+  `filename` varchar(50) DEFAULT NULL,
+  `file` mediumblob,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

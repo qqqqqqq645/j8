@@ -22,3 +22,11 @@ input/reader 클래스로 파일을 읽은후 또다른 클래스를 달아서 �
 db서버 연동햇는데 db서버가 꺼져있꺼나
 파일열려고했는데 파일이없다
 다 try catch 문으로 감싸야됨
+
+
+커넥터를어따넣냐
+java-jre-lib-ext
+java-jdk-jre-lib-ext } jvm에넣어두는것
+아니면 프로젝트 빌드패스
+
+mysql blob타입은 바이너리 형태의 데이터 타입 저장하는데 사용
