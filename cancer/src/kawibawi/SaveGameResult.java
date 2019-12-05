@@ -34,10 +34,10 @@ public class SaveGameResult extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser chooser = new JFileChooser();
 				int result = chooser.showSaveDialog(null);
-				if(result == JFileChooser.APPROVE_OPTION);
+				if(result == JFileChooser.APPROVE_OPTION) {
 					String filePath = chooser.getSelectedFile().getPath();
-					System.out.println(filePath);
 					path = filePath;
+				}
 			}
 		});
 		JButton save = new StytledBtn("저장");
@@ -80,22 +80,11 @@ public class SaveGameResult extends JDialog {
 		bottomPane.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 0));
 		bottomPane.add(save);
 		bottomPane.add(cancel);
-		
-		//bottomPane.add(fileSaveBtn);
+
 		
 		add(bottomPane);
 		
 		setSize(193,214);
-		this.addComponentListener(new FrameListener());
 		setVisible(false);
 	}
-}
-	class FrameListener extends ComponentAdapter{
-
-		public void componentResized(ComponentEvent e) {
-			JDialog evtd = (JDialog) e.getSource();
-			System.out.println("width = "+evtd.getWidth());
-			System.out.println("heith = "+evtd.getHeight());
-		
-		}
 }

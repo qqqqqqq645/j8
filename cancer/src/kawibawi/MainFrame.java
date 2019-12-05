@@ -56,11 +56,12 @@ public class MainFrame extends JFrame {
 			if(target.equals("유저추가")) {
 				//대충 다이얼로그 띄우라는 내용
 				UsrAdd usrAdd = new UsrAdd(MainFrame.this);//유저추가 객체 생성
-				profilePath = usrAdd.getProfilePath();
-				usrName = usrAdd.getUsrName();
-				panel.setProfile(profilePath);
-				if(usrName != null)
+				if((usrAdd.getProfilePath()!=null) && (usrAdd.getUsrName() != null)) {
+					profilePath = usrAdd.getProfilePath();
+					usrName = usrAdd.getUsrName();
 					panel.setNameField(usrName);
+					panel.setProfile(profilePath);
+				}
 			}
 			
 			else if(target.equals("끝내기")) {
@@ -75,7 +76,6 @@ public class MainFrame extends JFrame {
 					int usrChoose =gamePanel.getUsrChoose();
 					if(usrChoose !=0){
 						computerChoose = kbbProcess(usrChoose);
-						//ImageIcon [] kbbImg = gamePanel.getKbbImage();
 						printKbbImg(gamePanel.getKbbImage(),usrChoose,computerChoose);
 					}
 					
@@ -115,22 +115,18 @@ public class MainFrame extends JFrame {
 	
 	public int kbbProcess(int usrChoose) {
 		int computerSelect = ((int) (Math.random()*3))+1;//컴퓨터 1~3 랜덤
-		 System.out.println(usrChoose);
-		 System.out.println(computerSelect);
+
 		if(usrChoose != 0) {
 			if(usrChoose == computerSelect) {//비김
-				System.out.println("비김");
-				
+							
 			}
 			else if(((usrChoose%3)+1)==computerSelect) {//패베
-				System.out.println("패베!!");
-			
+					
 				panel.addComVic();
 				
 			}
-			else {//2김
+			else {
 				panel.addUsrVic();
-				System.out.println("승리");
 			}
 			return computerSelect;
 		}
@@ -138,7 +134,7 @@ public class MainFrame extends JFrame {
 			return -1;
 	}
 	
-	public void printKbbImg(ImageIcon [] kbbImg,int usr, int com) {
+	public void printKbbImg(ImageIcon [] kbbImg,int usr, int com) {//가위바위보 이미지 전달
 		panel.setKbbPics(kbbImg[usr-1], kbbImg[com-1]);
 	}
 	

@@ -20,7 +20,7 @@ class StyledLabel extends JLabel {
 class DialogLabel extends JLabel{
 
 	/**
-	 * 
+	 * 직렬화
 	 */
 	private static final long serialVersionUID = 1L;
 	public DialogLabel() {}
@@ -32,8 +32,8 @@ class DialogLabel extends JLabel{
 
 class StytledBtn extends JButton{
 
-	/**
-	 * 
+	/**직
+	 * 렬화
 	 */
 	private static final long serialVersionUID = 1L;
 	public  StytledBtn() {}

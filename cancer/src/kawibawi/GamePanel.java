@@ -1,7 +1,6 @@
 package kawibawi;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 public class GamePanel extends JPanel {
 	private int usrChoose;
@@ -49,7 +48,7 @@ public class GamePanel extends JPanel {
 	}
 	
 	public void gamePlay() {
-		int result = JOptionPane.showConfirmDialog(null,//부모
+		int result = JOptionPane.showConfirmDialog(getParent(),//부모
                 this,//JPanel
                 "게임하기",//타이틀
                 JOptionPane.OK_CANCEL_OPTION,
@@ -59,8 +58,11 @@ public class GamePanel extends JPanel {
 				if(usrChoose == 0) {
 					JOptionPane.showMessageDialog(this, "가위 바위 보 중 하나를 선택하새요", "경고", JOptionPane.ERROR_MESSAGE);
 				}
-							
+				this.remove(this);
 		}
+		else
+			usrChoose = 0;
+			this.remove(this);
 	}
 	
 	public int getUsrChoose() {

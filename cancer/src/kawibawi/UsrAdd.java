@@ -59,12 +59,12 @@ public class UsrAdd extends JPanel {
 					
 
 			} else {
-				System.out.println(profilePath+"\n"+usrName);
 				usrName = usrNameField.getText();
+				
 				profilePath = pathTemp;
 			}	
 		}
-
+		
 	}
 
 	public String getProfilePath() {
