@@ -15,10 +15,10 @@ public class TopToolbar extends JToolBar {
 	public TopToolbar() {
 		super();
 		
-		add(new JButton("유저추가"));
-		add(new JButton("게임하기"));
-		add(new JButton("기록저장"));
-		add(new JButton("끝내기"));
+		add(new StytledBtn("유저추가"));
+		add(new StytledBtn("게임하기"));
+		add(new StytledBtn("기록저장"));
+		add(new StytledBtn("끝내기"));
 		
 		setVisible(true);
 		
