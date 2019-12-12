@@ -3,8 +3,8 @@ package thread.race;
 import javax.swing.*;
 import java.awt.*;
 
-public class Race extends JFrame {
-	public Race() {
+public class Race2 extends JFrame {
+	public Race2() {
 		ImageIcon car[] = new ImageIcon[3];
 		JLabel carLabel[] = new JLabel[3];
 		int y=0;
@@ -17,35 +17,26 @@ public class Race extends JFrame {
 			add(carLabel[i]);
 		}
 		Container c = getContentPane();
-		Runnable [] runnable = new Runnable[3];
-		Thread th [] = new Thread[3];
-		for(int i=0;i<runnable.length;i++) {
-			runnable[i] = new CarThread(c,carLabel[i]);
-			th[i] = new Thread(runnable[i]);
-			th[i].start();
-			
-		}
-		
-		
-		
+		Runnable runnable = new CarThread2(c,carLabel);
+		Thread th = new Thread(runnable);
+		th.start();
 		setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 		setSize(600,200);
-		System.out.println(c.getWidth());
 		
 	}
 	
 	public static void main(String [] args) {
-		new Race();
+		new Race2();
 	}
 }
 
-class CarThread implements Runnable{
+class CarThread2 implements Runnable{
 	
-		JLabel  carLabel;
+		JLabel [] carLabel;
 		Container c;
-	public CarThread(Container c,JLabel  carLabel) {
+	public CarThread2(Container c,JLabel [] carLabel) {
 		// TODO Auto-generated constructor stub
 		this.carLabel = carLabel;
 		this.c = c;
@@ -55,22 +46,19 @@ class CarThread implements Runnable{
 	public void run() {
 		// TODO Auto-generated method stub
 		while(true) {
-					int x = (int) (Math.random()*10);
-				carLabel.setLocation(carLabel.getX()+x,carLabel.getY());
-				//c.repaint();
-				//System.out.println(carLabel.getX());
-				if((carLabel.getX())>=600) {
-					System.out.println("끝");
-					break;
-					}
-					
-			
-				try {
-				Thread.sleep(200);
-					}
-			catch(InterruptedException e) {
-					return;
-				}
+			for(int i=0;i<carLabel.length;i++) {
+				int x = (int) (Math.random()*10);
+				carLabel[i].setLocation(carLabel[i].getX()+x,carLabel[i].getY());
+				c.repaint();
 			}
+			try {
+				Thread.sleep(500);
+			}
+			catch(InterruptedException e) {
+				return;
+			}
+
+		}
+
 	}
 }

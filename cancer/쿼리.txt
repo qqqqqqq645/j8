@@ -1,0 +1,121 @@
+mysql.com 에서 리포지토리 설치후
+yum.repos.d	에서 버전설정
+yum install mysql-server?
+
+mysql 최초설치후
+grep 'temporary password' /var/log/mysqld.log
+
+
+uninstall plugin validate_password;
+패스워드정책 삭제
+
+install plugin validate_password soname 'validate_password.so';
+플러그인 다시설치
+
+ALTER USER 'root'@'%' IDENTIFIED BY '비밀번호';
+ALTER USER 'root'@'localhost' IDENTIFIED BY '비밀번호';
+
+방화벽설정
+vi /etc/firewalld/zones/public.eml
+firewall-cmd --reload
+
+윈도우 ->가상머신 sql서버접속
+네트워크 어댑터브리지설정
+
+유저만들기
+create user '사용자'@'localhost' identified by '비밀번호';
+
+db궈난주기
+$ grant all privileges on *.* to '사용자'@'localhost';
+$ grant all privileges on DB이름.* to '사용자'@'localhost';
+
+사용자계정삭제
+$ drop user '사용자'@'localhost';
+
+
+
+flush privileges; 	사용자를 추가,삭제하거나, 사용자 권한 등을 변경하였을 때, MySQL에 변경사항을 적용하기 위해서 사용하는 명령어
+
+webadmin 1q2w3e
+-----------------------------------------------------------------------------------
+레코드추가하기
+Insert into member(id, passwd, name, reg_date)
+
+        values('industria', '1234', '이학민', now());
+
+레코드 업데이트
+update test set name='김종택' where id=1;
+update test set name ='김종택' where name ='이종택';
+
+삭제
+delete from test where id = 1;
+delete from test where name ='김종택';
+
+
+졍렬
+select * from table_01 order by age ase; //오름차순정렬
+
+desc//내림차순
+------------------------------------------------------------------------------------------------
+CREATE DATABASE web_db  default CHARACTER SET UTF8;
+USE web_db;
+CREATE TABLE `member` (
+	`id` varchar(50) NOT NULL,
+	`password` varchar(100) NOT NULL,
+	`name` varchar(120) NOT NULL,
+	`reg_date` datetime DEFAULT NULL,
+	`email` varchar (120) NOT NULL,
+	`super` int DEFAULT 0,
+	PRIMARY KEY(`id`)
+	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+	
+테이블 삭제
+drop table member;
+
+테이블 이름변경
+alter table test rename test1;
+rename table test to test1;
+------------------------------------------------------------------------------------------------
+필드추가
+alter table test add content test //content 필드 추가
+
+필드 삭제
+alter table test drop content //content삭제
+
+필드이름 수정
+
+alter tablbe test change name myname //name을 mynameㅡㅇㄹ
+
+필드타입 수정
+alter table test modify name varchar(30)
+------------------------------------------------------------------------------------------------
+utf8 설정
+[client]
+
+default-character-set=utf8
+
+
+
+[mysqld]
+
+character-set-client-handshake = FALSE
+
+init_connect="SET collation_connection = utf8_general_ci"
+
+init_connect="SET NAMES utf8"
+
+character-set-server = utf8
+
+
+
+[mysql]
+
+default-character-set=utf8
+
+
+
+[mysqldump]
+
+default-character-set = utf8
+
+------------------------------------------------------------------------------------------------

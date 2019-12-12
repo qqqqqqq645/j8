@@ -16,7 +16,7 @@ public class NoLayoutManager extends JFrame {
 			JLabel asdf = new JLabel("This is JLabel",JLabel.CENTER);
 			asdf.setSize(500, 10);
 			asdf.setLocation(0,0);
-			here = asdf.get
+			//here = asdf.get
 			add(asdf);
 			JPanel japan = new JPanel();
 			japan.setSize(getWidth(),(int)getHeight()/10);
